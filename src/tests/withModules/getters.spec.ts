@@ -14,6 +14,7 @@ describe("Given store with modules exposing getters", () => {
         store.replaceState({
             system: {
                 userLogin: "abc",
+                maxAllowedItems: 5,
             },
             basket: {
                 items: [

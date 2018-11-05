@@ -21,6 +21,7 @@ describe("Given mutations defined as class members", () => {
         store.replaceState({
             system: {
                 userLogin: "abc",
+                maxAllowedItems: 5,
             },
             basket: {
                 items: [],
@@ -39,6 +40,7 @@ describe("Given mutations defined as class members", () => {
             expect(store.state).to.deep.equal({
                 system: {
                     userLogin: "xyz",
+                    maxAllowedItems: 5,
                 },
                 basket: {
                     items: [],

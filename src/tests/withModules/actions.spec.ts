@@ -14,6 +14,7 @@ describe("Given store with modules exposing actions", () => {
         store.replaceState({
             system: {
                 userLogin: "abc",
+                maxAllowedItems: 5,
             },
             basket: {
                 items: [
@@ -37,6 +38,7 @@ describe("Given store with modules exposing actions", () => {
             expect(store.state).to.deep.equal({
                 system: {
                     userLogin: "abc",
+                    maxAllowedItems: 5,
                 },
                 basket: {
                     items: [
@@ -59,6 +61,7 @@ describe("Given store with modules exposing actions", () => {
             expect(store.state).to.deep.equal({
                 system: {
                     userLogin: "abc",
+                    maxAllowedItems: 5,
                 },
                 basket: {
                     items: [
@@ -93,6 +96,7 @@ describe("Given store with modules exposing actions", () => {
             expect(store.state).to.deep.equal({
                 system: {
                     userLogin: "abc",
+                    maxAllowedItems: 5,
                 },
                 basket: {
                     items: [

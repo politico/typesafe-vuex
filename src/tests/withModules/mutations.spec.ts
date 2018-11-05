@@ -14,6 +14,7 @@ describe("Given store with modules exposing mutations", () => {
         store.replaceState({
             system: {
                 userLogin: "abc",
+                maxAllowedItems: 5,
             },
             basket: {
                 items: [ { product: { id: 1, name: "clock", unitPrice: 50 }, isSelected: true } ],
@@ -31,6 +32,7 @@ describe("Given store with modules exposing mutations", () => {
             expect(store.state).to.deep.equal({
                 system: {
                     userLogin: "abc",
+                    maxAllowedItems: 5,
                 },
                 basket: {
                     items: [],
@@ -49,6 +51,7 @@ describe("Given store with modules exposing mutations", () => {
             expect(store.state).to.deep.equal({
                 system: {
                     userLogin: "abc",
+                    maxAllowedItems: 5,
                 },
                 basket: {
                     items: [
@@ -70,6 +73,7 @@ describe("Given store with modules exposing mutations", () => {
             expect(store.state).to.deep.equal({
                 system: {
                     userLogin: "abc",
+                    maxAllowedItems: 5,
                 },
                 basket: {
                     items: [
