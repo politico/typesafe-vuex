@@ -1,8 +1,8 @@
-# Vuex-Typescript [![Build Status](https://travis-ci.org/istrib/vuex-typescript.svg?branch=master)](https://travis-ci.org/istrib/vuex-typescript) [![Coverage Status](https://coveralls.io/repos/github/istrib/vuex-typescript/badge.svg?branch=master)](https://coveralls.io/github/istrib/vuex-typescript?branch=master) [![npm version](https://badge.fury.io/js/vuex-typescript.svg)](https://badge.fury.io/js/vuex-typescript)
-
-[https://github.com/istrib/vuex-typescript/](https://github.com/istrib/vuex-typescript/)
+# Typesafe-Vuex [![Build Status](https://travis-ci.org/istrib/vuex-typescript.svg?branch=master)](https://travis-ci.org/istrib/vuex-typescript) [![Coverage Status](https://coveralls.io/repos/github/istrib/vuex-typescript/badge.svg?branch=master)](https://coveralls.io/github/istrib/vuex-typescript?branch=master) [![npm version](https://badge.fury.io/js/vuex-typescript.svg)](https://badge.fury.io/js/vuex-typ
 
 A simple way to get static typing, static code analysis and intellisense with Vuex library.
+
+Forked from [vuex-typescript](https://github.com/istrib/vuex-typescript), a great project by [@istrib](https://github.com/istrib), that seems to be unmaintained as of 11/13/2017.  This project is intended to provide a maintained version, addressing some issues that have arisen since then.
 
 
 ![](doc/Intellisense.png)
@@ -26,11 +26,11 @@ to higher-order functions provided by this library which do the dull work.
 
 ## Example 
 
-Full working example available [here](https://github.com/istrib/vuex-typescript/tree/master/src/tests/withModules/store/basket/basket.ts). Excerpt:
+Full working example available [here](https://github.com/jackkoppa/typesafe-vuex/tree/master/src/tests/withModules/store/basket/basket.ts). Excerpt:
 
 ```js
 import { ActionContext, Store } from "vuex";
-import { getStoreAccessors } from "vuex-typescript";
+import { getStoreAccessors } from "typesafe-vuex";
 import { State as RootState } from "../state";
 import { BasketState, Product, ProductInBasket } from "./basketState";
 
@@ -70,12 +70,12 @@ export const basket = {
     },
 };
 
-// This is where the vuex-typescript specific stuff begins:
+// This is where the typesafe-vuex specific stuff begins:
 //
 // We want to expose static functions which will call get, dispatch or commit method
 // on a store instance taking correct type of payload (or getter signature).
 // Instead of writing these "store accessor" functions by hand, we use set of higher-order
-// functions provided by vuex-typescript. These functions will produce statically typed
+// functions provided by typesafe-vuex. These functions will produce statically typed
 // functions which we want. Note that no type annotation is required at this point.
 // Types of arguments are inferred from signature of vanilla vuex handlers defined above:
 
@@ -101,12 +101,10 @@ basket.commitAppendItem(this.$store, newItem); // This will give compilation err
 
 ## Vuex version compatibility
 
-For **Vuex 2.x** use newest **vuex-typescript 2.x**
-
-For **Vuex 3.x** use newest **vuex-typescript 3.x**
+For **Vuex 3.x** use newest **typesafe-vuex 3.x**
 
 This library has explicit dependency on Vuex.
-A new version of vuex-typescript is released following each major release of Vuex. This way breaking API changes introduced into Vuex are guaranteed to be followed up and tested in vuex-typescript. 
+A new version of typesafe-vuex is released following each major release of Vuex. This way breaking API changes introduced into Vuex are guaranteed to be followed up and tested in typesafe-vuex. 
 
 ## Functions or objects
 
@@ -116,7 +114,7 @@ Importing and using functions rather than objects makes it explicit which access
 stating which accessor in an object you may be using.
 
 If you wish to define your vuex handlers as class members then you must decorate these methods with `@Handler`
-decorator exported from this library as shown in [this test](https://github.com/istrib/vuex-typescript/tree/master/src/tests/withModules/store/system/system.ts).
+decorator exported from this library as shown in [this test](https://github.com/jackkoppa/typesafe-vuex/tree/master/src/tests/withModules/store/system/system.ts).
 
 ## More
 
