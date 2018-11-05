@@ -2,7 +2,7 @@
 
 A simple way to get static typing, static code analysis and intellisense with Vuex library - maintained fork of [`vuex-typescript`](https://github.com/istrib/vuex-typescript)
 
-`vuex-typescript` is a great project by [@istrib](https://github.com/istrib), that seems to be unmaintained as of 11/13/2017.  This project is intended to provide a maintained version, addressing some issues that have arisen since then.
+The above is a great project by [@istrib](https://github.com/istrib), that seems to be unmaintained as of 11/13/2017 ([last commit](https://github.com/istrib/vuex-typescript/commit/105d21977d0f870910d86f7706c06ee8bd3bded9)). This project is intended to provide a maintained version, addressing some issues that have arisen since then.
 
 
 ![](doc/Intellisense.png)
