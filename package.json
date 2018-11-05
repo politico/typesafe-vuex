@@ -1,6 +1,6 @@
 {
   "name": "typesafe-vuex",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "A simple way to get static typing, static code analysis and intellisense with Vuex library - maintained fork of vuex-typescript",
   "files": [
     "dist/index.js",
@@ -43,6 +43,6 @@
     "coverage": "rimraf coverage && nyc --reporter=html --reporter=text --reporter=lcov -x **/*.spec.js npm run test-only",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "preversion": "npm run test && npm run build",
-		"postversion": "git push && git push --tags && npm publish"
+    "postversion": "git push && git push --tags && npm publish"
   }
 }
