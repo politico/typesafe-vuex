@@ -1,8 +1,8 @@
 # Typesafe-Vuex [![Build Status](https://travis-ci.org/jackkoppa/typesafe-vuex.svg?branch=master)](https://travis-ci.org/jackkoppa/typesafe-vuex) [![Coverage Status](https://coveralls.io/repos/github/jackkoppa/typesafe-vuex/badge.svg)](https://coveralls.io/github/jackkoppa/typesafe-vuex)
 
-A simple way to get static typing, static code analysis and intellisense with Vuex library.
+A simple way to get static typing, static code analysis and intellisense with Vuex library - maintained fork of [`vuex-typescript`](https://github.com/istrib/vuex-typescript)
 
-Forked from [vuex-typescript](https://github.com/istrib/vuex-typescript), a great project by [@istrib](https://github.com/istrib), that seems to be unmaintained as of 11/13/2017.  This project is intended to provide a maintained version, addressing some issues that have arisen since then.
+`vuex-typescript` is a great project by [@istrib](https://github.com/istrib), that seems to be unmaintained as of 11/13/2017.  This project is intended to provide a maintained version, addressing some issues that have arisen since then.
 
 
 ![](doc/Intellisense.png)
