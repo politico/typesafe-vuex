@@ -10,6 +10,7 @@
   "typings": "dist/index.d.ts",
   "author": "jackkoppa",
   "license": "MIT",
+  "repository": "https://github.com/jackkoppa/typesafe-vuex",
   "devDependencies": {
     "@types/chai": "^3.4.35",
     "@types/chai-http": "^0.0.30",
