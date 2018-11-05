@@ -1,14 +1,14 @@
 {
-  "name": "vuex-typescript",
+  "name": "typesafe-vuex",
   "version": "3.0.2",
-  "description": "A simple way to get static typing, static code analysis and intellisense with Vuex library.",
+  "description": "A simple way to get static typing, static code analysis and intellisense with Vuex library - maintained fork of vuex-typescript",
   "files": [
     "dist/index.js",
     "dist/index.d.ts"
   ],
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "author": "istrib",
+  "author": "jackkoppa",
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^3.4.35",
