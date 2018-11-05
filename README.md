@@ -1,4 +1,4 @@
-# Typesafe-Vuex [![Build Status](https://travis-ci.org/jackkoppa/typesafe-vuex.svg?branch=master)](https://travis-ci.org/jackkoppa/typesafe-vuex)
+# Typesafe-Vuex [![Build Status](https://travis-ci.org/jackkoppa/typesafe-vuex.svg?branch=master)](https://travis-ci.org/jackkoppa/typesafe-vuex) [![Coverage Status](https://coveralls.io/repos/github/jackkoppa/typesafe-vuex/badge.svg)](https://coveralls.io/github/jackkoppa/typesafe-vuex)
 
 A simple way to get static typing, static code analysis and intellisense with Vuex library.
 
