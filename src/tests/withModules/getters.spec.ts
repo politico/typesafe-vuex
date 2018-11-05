@@ -65,4 +65,41 @@ describe("Given store with modules exposing getters", () => {
             });
         });
     });
+
+    describe(
+        "when getter that accesses a value outside its own module state" +
+        "is accessed using function built with read function",
+        () => {
+        let getterResult: basket.ProductInBasket[];
+
+        describe("and a root state value has been set", () => {
+            beforeEach(() => {
+                store.state.system.maxAllowedItems = 5;
+                getterResult = basket.readLimitedItems(store);
+            });
+
+            it("the function returns value corresponding to the root state value that it references", () => {
+                expect(getterResult).to.deep.equal([
+                    { product: { id: 1, name: "clock", unitPrice: 50 }, isSelected: true },
+                    { product: { id: 2, name: "newspaper", unitPrice: 20 }, isSelected: false },
+                    { product: { id: 3, name: "candy", unitPrice: 10 }, isSelected: false }]);
+            });
+        });
+
+        describe("and an updated root state value has been set that changes the getter result", () => {
+            beforeEach(() => {
+                store.state.system.maxAllowedItems = 2;
+                getterResult = basket.readLimitedItems(store);
+            });
+
+            it(
+                "the function returns value (a shortened array, in this case)" +
+                "corresponding to the updated root state value that it references",
+                () => {
+                expect(getterResult).to.deep.equal([
+                    { product: { id: 1, name: "clock", unitPrice: 50 }, isSelected: true },
+                    { product: { id: 2, name: "newspaper", unitPrice: 20 }, isSelected: false }]);
+            });
+        });
+    });
 });

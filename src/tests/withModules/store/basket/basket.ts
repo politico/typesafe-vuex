@@ -25,6 +25,10 @@ export const basket = {
         getTotalAmountWithoutDiscount(state: BasketState) {
             return state.items.reduce((total, item) => total + item.product.unitPrice, 0);
         },
+
+        getLimitedItems(state: BasketState, {}, rootState: RootState) {
+            return state.items.slice(0, rootState.system.maxAllowedItems);
+        },
     },
 
     mutations: {
@@ -84,6 +88,7 @@ const getters = basket.getters;
 export const readProductNames = read(getters.getProductNames);
 export const readItemsByStatus = read(getters.getItemsByStatus);
 export const readTotalAmountWithoutDiscount = read(getters.getTotalAmountWithoutDiscount);
+export const readLimitedItems = read(getters.getLimitedItems);
 
 const actions = basket.actions;
 
