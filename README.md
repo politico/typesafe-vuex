@@ -116,6 +116,45 @@ stating which accessor in an object you may be using.
 If you wish to define your vuex handlers as class members then you must decorate these methods with `@Handler`
 decorator exported from this library as shown in [this test](https://github.com/jackkoppa/typesafe-vuex/tree/master/src/tests/withModules/store/system/system.ts).
 
+## Vue CLI
+
+If you are using Vue CLI, when it compiles for production, it will minify the code.
+
+But Typesafe-Vuex depends on the names of the functions to be preserved.
+
+To configure it to minify everything except the function names (so that Typesafe-Vuex works), [use the `configureWebpack`](https://cli.vuejs.org/guide/webpack.html#simple-configuration), to set the `terserOptions` object with the `keep_fnames` set to `true` in the file `vue.config.js`:
+
+```JavaScript
+module.exports = {
+  configureWebpack: (config) => {
+    if (process.env.NODE_ENV === 'production') {
+      config.optimization.minimizer[0].options.terserOptions = Object.assign(
+        {},
+        config.optimization.minimizer[0].options.terserOptions,
+        {
+          ecma: 5,
+          compress: {
+            keep_fnames: true,
+          },
+          warnings: false,
+          mangle: {
+            keep_fnames: true,
+          },
+        },
+      );
+    }
+  },
+}
+```
+
+**Note**: In versions of Vue CLI lower than `3.1.0`, instead of `terserOptions` use `uglifyOptions`.
+
+## Custom compilers
+
+If you are using Webpack directly or any other custom compilation strategy, make sure that the names of the functions for Vuex are preserved.
+
+As an example, see the section above for Vue CLI.
+
 ## More
 
 https://github.com/mrcrowl/vuex-typex also uses higher-order functions but takes a few steps more: there the store is implicitly built while defining accessors for each handler (in contrast here we create store with standard Vuex options and then wrap handlers into accessors). It is also not required to pass $store as argument to accessors. Definitely worth checking out.
