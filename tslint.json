@@ -9,6 +9,8 @@
         "no-angle-bracket-type-assertion": false,
         "whitespace": false,
         "interface-name": false,
-        "no-var-requires": false
+        "no-var-requires": false,
+        "no-implicit-dependencies": [true, "dev"],
+        "no-duplicate-imports": [true, {"allow-namespace-imports": true}]
     }
 }
