@@ -44,8 +44,10 @@ export type GetAccessor<TModuleState, TRootState, TResult> =
  * Function which dispatches a concrete Vuex action with payload.
  */
 export type DispatchAccessorWithPayload<TModuleState, TRootState, TPayload, TResult> =
-    (store: Store<TRootState> | ActionContext<TModuleState, TRootState>,
-    payload: TPayload) => Promise<TResult>;
+    (
+        store: Store<TRootState> | ActionContext<TModuleState, TRootState>,
+        payload: TPayload,
+    ) => Promise<TResult>;
 /**
  * Function which dispatches a concrete Vuex action without payload.
  */
@@ -56,8 +58,10 @@ export type DispatchAccessorNoPayload<TModuleState, TRootState, TResult> =
  * Function which commits a concrete Vuex mutation with payload.
  */
 export type CommitAccessorWithPayload<TModuleState, TRootState, TPayload> =
-    (store: Store<TRootState> | ActionContext<TModuleState, TRootState>,
-    payload: TPayload) => void;
+    (
+        store: Store<TRootState> | ActionContext<TModuleState, TRootState>,
+        payload: TPayload,
+    ) => void;
 /**
  * Function which commits a concrete Vuex mutation without payload.
  */
