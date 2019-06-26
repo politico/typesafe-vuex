@@ -101,17 +101,14 @@ basket.commitAppendItem(this.$store, newItem); // This will give compilation err
 
 ## Vuex version compatibility
 
-For **Vuex 3.x** use newest **typesafe-vuex 3.x**
-
 This library has explicit dependency on Vuex.
-A new version of typesafe-vuex is released following each major release of Vuex. This way breaking API changes introduced into Vuex are guaranteed to be followed up and tested in typesafe-vuex. 
+A new version of typesafe-vuex is released following each major release of Vuex. This way breaking API changes introduced into Vuex are guaranteed to be followed up and tested in typesafe-vuex. Currently, this library only supports Vuex 3.
 
 ## Functions or objects
 
 This lib is deliberately designed with functions rather than classes. This does not stop you from grouping accessors into objects. 
-Note however that this makes little sense as the accessors are loosely or not related to each other. 
-Importing and using functions rather than objects makes it explicit which accessor you actually use rather than 
-stating which accessor in an object you may be using.
+Note however that this makes little sense as the accessors are loosely or not related to each other.
+Importing and using functions rather than objects makes it explicit which accessor you actually use rather than stating which accessor in an object you may be using.
 
 If you wish to define your vuex handlers as class members then you must decorate these methods with `@Handler`
 decorator exported from this library as shown in [this test](https://github.com/jackkoppa/typesafe-vuex/tree/master/src/tests/withModules/store/system/system.ts).
@@ -120,40 +117,34 @@ decorator exported from this library as shown in [this test](https://github.com/
 
 If you are using Vue CLI, when it compiles for production, it will minify the code.
 
-But Typesafe-Vuex depends on the names of the functions to be preserved.
+But typesafe-vuex depends on the names of the functions to be preserved.
 
-To configure it to minify everything except the function names (so that Typesafe-Vuex works), [use the `configureWebpack`](https://cli.vuejs.org/guide/webpack.html#simple-configuration), to set the `terserOptions` object with the `keep_fnames` set to `true` in the file `vue.config.js`:
+We provide a helper method to configure Webpack for you, so that function names are preserved. This should solve issues you see with Vuex when running `vue-cli-service --mode production`, and when running your project in IE 11.
 
-```JavaScript
+**To use in Vue CLI 3**
+
+```javascript
+// vue.config.js
+const { preserveFunctionNamesWithTerser } = require('typesafe-vuex/helpers')
+
 module.exports = {
-  configureWebpack: (config) => {
-    if (process.env.NODE_ENV === 'production') {
-      config.optimization.minimizer[0].options.terserOptions = Object.assign(
-        {},
-        config.optimization.minimizer[0].options.terserOptions,
-        {
-          ecma: 5,
-          compress: {
-            keep_fnames: true,
-          },
-          warnings: false,
-          mangle: {
-            keep_fnames: true,
-          },
-        },
-      );
+    // other Vue CLI options, like devServer
+
+    configureWebpack: (config) => {
+        preserveFunctionNamesWithTerser(config)
     }
-  },
 }
 ```
 
-**Note**: In versions of Vue CLI lower than `3.1.0`, instead of `terserOptions` use `uglifyOptions`.
+**References:**
+
+* [typesafe-vuex, Issue #4](https://github.com/jackkoppa/typesafe-vuex/issues/4)
+* [mrcrowl/vuex-typex](https://github.com/mrcrowl/vuex-typex/issues/22#issuecomment-475524894)
+* [istrib/vuex-typescript](https://github.com/istrib/vuex-typescript/issues/13#issuecomment-475524502)
 
 ## Custom compilers
 
-If you are using Webpack directly or any other custom compilation strategy, make sure that the names of the functions for Vuex are preserved.
-
-As an example, see the section above for Vue CLI.
+If you are using Webpack directly or any other custom compilation strategy, make sure that the names of the functions for Vuex are preserved. You can use the helper method above, `preserveFunctionNamesWithTerser`, or set your own configuration to ensure that function names remain.
 
 ## More
 

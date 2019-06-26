@@ -3,3 +3,10 @@ coverage/
 node_modules/
 npm-debug.log
 .nyc_output
+
+# Output of running npm pack for testing
+*.tgz
+
+# Ignore exported helpers, but include src
+helpers/
+!src/helpers
