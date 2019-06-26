@@ -4,7 +4,9 @@
   "description": "A simple way to get static typing, static code analysis and intellisense with Vuex library - maintained fork of vuex-typescript",
   "files": [
     "dist/index.js",
-    "dist/index.d.ts"
+    "dist/index.d.ts",
+    "helpers/index.js",
+    "helpers/index.d.ts"
   ],
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -12,12 +14,15 @@
   "license": "MIT",
   "repository": "https://github.com/jackkoppa/typesafe-vuex",
   "publishConfig": {
-		"registry": "https://registry.npmjs.org/"
-	},
+    "registry": "https://registry.npmjs.org/"
+  },
   "devDependencies": {
     "@types/chai": "^3.4.35",
     "@types/chai-http": "^0.0.30",
     "@types/mocha": "^2.2.44",
+    "@types/terser": "^3.12.0",
+    "@types/terser-webpack-plugin": "^1.2.1",
+    "@types/webpack": "^4.4.34",
     "chai": "^3.5.0",
     "coveralls": "^3.0.2",
     "mocha": "^6.1.4",
@@ -32,12 +37,12 @@
     "vuex": "3.x"
   },
   "scripts": {
-    "clean": "rimraf dist && rimraf coverage",
+    "clean": "rimraf dist && rimraf helpers && rimraf coverage",
     "lint-force": "tslint --force --format verbose \"src/**/*.ts\"",
     "lint": "tslint --format verbose \"src/**/*.ts\"",
     "compile": "echo Using TypeScript && tsc --version && tsc --pretty",
     "compile-watch": "npm run compile -- --watch",
-    "build": "npm run clean && npm run lint-force && npm run compile",
+    "build": "npm run clean && npm run lint-force && npm run compile && node ./build/moveHelpers.js",
     "build-watch": "npm run clean && npm run lint-force && npm run compile-watch",
     "test": "npm run coverage",
     "test-only": "mocha --recursive dist/**/*.spec.js",
