@@ -1,6 +1,6 @@
 {
   "name": "typesafe-vuex",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "A simple way to get static typing, static code analysis and intellisense with Vuex library - maintained fork of vuex-typescript",
   "files": [
     "dist/index.js",
